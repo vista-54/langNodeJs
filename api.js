@@ -14,5 +14,5 @@ app.get('/api', function (req, res) {
 })
 
 app.listen(4001, function () {
-  console.log('Express server listening on port 1337')
+  console.log('Express server listening on port 4001')
 })
