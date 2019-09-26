@@ -14,7 +14,7 @@ process
 
 setInterval(console.log.bind(console, 'tick'), 1000);
 http.createServer((req, res) => res.end('hi'))
-  .listen(process.env.PORT || 3000, () => console.log('Listening'));
+  .listen(process.env.PORT || 4001, () => console.log('Listening'));
 
 function shutdown(signal) {
   return (err) => {
@@ -23,7 +23,7 @@ function shutdown(signal) {
     setTimeout(() => {
       console.log('...waited 5s, exiting.');
       process.exit(err ? 1 : 0);
-    }, 5000).unref();
+    }, 4001).unref();
   };
 }
 
@@ -33,7 +33,7 @@ app.get('/api', function (req, res) {
   index.run(body.email)
   res.send('API is running')
 })
-let port = process.env.PORT || 3000
+let port = process.env.PORT || 4001
 app.listen(port, function () {
   console.log('Express server listening on port '+port)
 })
