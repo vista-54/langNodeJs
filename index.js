@@ -66,8 +66,9 @@ let notification = require('./notification');
    */
   function getDataFromLink (url, callback) {
     needle.get(url, function (err, res) {
-      let items = res.body.items
       console.log('Check URl:' + url)
+
+      let items = res.body.items
       //get yesterdays records
 
       /**
