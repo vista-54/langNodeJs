@@ -9,7 +9,7 @@ let notification = require('./notification');
   let platforms = [
     'android', 'ios', 'web'
   ]
-
+  let receivedEmail=''//just for API testing
   const mainLink = 'https://content.mosalingua.com/export/statistic/{translation}/{original}/{platform}'
   let report = []
   /**
@@ -24,7 +24,7 @@ let notification = require('./notification');
     console.log(report)
     if (report.length > 0) {
       //Code for sending Email
-      notification.send(report)
+      notification.send(report,receivedEmail)
     }
   }
 
@@ -113,6 +113,11 @@ let notification = require('./notification');
     })
   }
 
-  generateLinksArray()
+  // generateLinksArray()
+
+  exports.run=function (email) {
+    generateLinksArray()
+    receivedEmail=email
+  }
 
 })()
