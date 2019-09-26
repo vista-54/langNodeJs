@@ -25,6 +25,7 @@ let notification = require('./notification');
     if (report.length > 0) {
       //Code for sending Email
       notification.send(report,receivedEmail)
+      report=[]
     }
   }
 
