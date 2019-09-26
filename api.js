@@ -13,6 +13,6 @@ app.get('/api', function (req, res) {
   res.send('API is running')
 })
 
-app.listen(443, function () {
+app.listen(80, function () {
   console.log('Express server listening on port 1337')
 })
