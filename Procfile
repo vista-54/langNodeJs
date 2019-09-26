@@ -1,1 +1,1 @@
-web: node cron.js
+web: node api.js
