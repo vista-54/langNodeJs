@@ -16,23 +16,7 @@ let notification = require('./notification');
    * Make a queue for requests
    * @type {tress}
    */
-  notification.send([{
-    name: 'it-ru.android',
-    date: '2019-09-19T15:25:43',
-    cards: 1917,
-    categories: 168,
-    deltaCards: -4,
-    deltaCategories: 0
-  },
-    {
-      name: 'it-ru.web',
-      date: '2019-09-19T00:52:33',
-      cards: 1912,
-      categories: 168,
-      deltaCards: -4,
-      deltaCategories: 0
-    },
-  ])
+
   const q = tress(getDataFromLink)
 
   q.drain = function () {
@@ -40,6 +24,7 @@ let notification = require('./notification');
     console.log(report)
     if (report.length > 0) {
       //Code for sending Email
+      notification.send(report)
     }
   }
 
@@ -110,8 +95,8 @@ let notification = require('./notification');
       if (yesterdaysItems.length > 1) {
         //calculate delta cards and categories
         let lastElementIndex = yesterdaysItems.length - 1
-        let deltaCategories = yesterdaysItems[0].numberCategories - yesterdaysItems[lastElementIndex].numberCategories
-        let deltaCards = yesterdaysItems[0].numberCards - yesterdaysItems[lastElementIndex].numberCards
+        let deltaCategories = yesterdaysItems[lastElementIndex].numberCategories - yesterdaysItems[0].numberCategories
+        let deltaCards = yesterdaysItems[lastElementIndex].numberCards - yesterdaysItems[0].numberCards
         if (deltaCards || deltaCategories) {
           report.push({
             name: yesterdaysItems[0].name,
