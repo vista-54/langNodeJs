@@ -12,7 +12,7 @@ app.get('/api', function (req, res) {
   index.run(body.email)
   res.send('API is running')
 })
-
-app.listen(4001, function () {
-  console.log('Express server listening on port 4001')
+let port = process.env.PORT || 5000
+app.listen(port, function () {
+  console.log('Express server listening on port '+port)
 })
